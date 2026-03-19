@@ -1,0 +1,258 @@
+.modal.fade .modal-dialog {
+  transform: scale(0.8);
+  transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+}
+
+.custom-modal {
+  border: none;
+  border-radius: 30px;
+  overflow: hidden;
+  background: white;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .modal-icon {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: pulseIcon 0.5s ease-out;
+
+    i {
+      font-size: 2rem;
+    }
+
+    &.warning i {
+      color: #ffc107;
+    }
+
+    &.danger i {
+      color: #dc3545;
+    }
+
+    &.info i {
+      color: #17a2b8;
+    }
+
+    &.success i {
+      color: #28a745;
+    }
+  }
+
+  .btn-close {
+    background: transparent;
+    opacity: 1;
+    transition: transform 0.2s;
+    filter: brightness(0) invert(1);
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.modal-body {
+  padding: 2rem;
+  text-align: center;
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .modal-message {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.modal-footer {
+  border: none;
+  padding: 1.5rem 2rem;
+  padding-top: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  .btn {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s;
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 1.1rem;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .btn-cancel {
+    background: #f8f9fa;
+    color: #666;
+    border: 2px solid #e0e0e0;
+
+    &:hover {
+      background: #e0e0e0;
+      border-color: #ccc;
+    }
+  }
+
+  .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+    color: white;
+
+    &:hover {
+      box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+    }
+  }
+
+  .btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+
+    &:hover {
+      box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+    }
+  }
+
+  .btn-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #0dcaf0 100%);
+    color: white;
+
+    &:hover {
+      box-shadow: 0 10px 20px rgba(23, 162, 184, 0.3);
+    }
+  }
+
+  .btn-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+
+    &:hover {
+      box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+    }
+  }
+}
+
+.modal-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f0937b, #fbc2c2);
+  animation: gradientMove 3s ease infinite;
+  background-size: 300% 100%;
+}
+
+@keyframes pulseIcon {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-header {
+    padding: 1.25rem;
+
+    .modal-icon {
+      width: 50px;
+      height: 50px;
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+
+    .modal-title {
+      font-size: 1.25rem;
+    }
+
+    .modal-message {
+      font-size: 1rem;
+    }
+  }
+
+  .modal-footer {
+    padding: 1.5rem;
+    padding-top: 0;
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+}

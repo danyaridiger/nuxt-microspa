@@ -1,0 +1,45 @@
+@use "./index-page.scss";
+@use "./task-page.scss";
+@use "./confirm-modal.scss";
+@use "./note-card.scss";
+@use "./task-item.scss";
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.task-item {
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  .form-check-label {
+    flex: 1;
+    cursor: pointer;
+
+    input[type="text"] {
+      max-width: 300px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn-group-sm {
+    .btn {
+      padding: 0.25rem 0.5rem;
+    }
+  }
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
